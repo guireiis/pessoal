@@ -11,7 +11,7 @@ body {
 
 body {
   width: 100%;
-  background-color: #000;
+  background-color: #fbe4ec;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -23,6 +23,31 @@ body {
   }
 }
 
+.rose-rain {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rose {
+  position: absolute;
+  top: -3rem;
+  opacity: 0.8;
+  animation: rose-fall linear infinite;
+  filter: drop-shadow(0 2px 2px rgba(135, 35, 70, 0.18));
+}
+
+@keyframes rose-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(4rem, 115vh, 0) rotate(360deg);
+  }
+}
+
 .envelop {
   width: 15rem;
   height: 10rem;
@@ -30,6 +55,7 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+  z-index: 1;
 }
 @media (min-width: 400px) and (max-width: 600px) {
   .envelop {
@@ -97,6 +123,19 @@ body {
   border: 0.3rem solid #e2e2e2;
   background-size: 2rem;
   background-position: center;
+}
+@media (hover: none) and (pointer: coarse) {
+  .scissors .envelop__sticker::after {
+    content: "\2702";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #222;
+    font-size: 1.8rem;
+    line-height: 1;
+    pointer-events: none;
+  }
 }
 @media (max-width: 400px) {
   .envelop__sticker {

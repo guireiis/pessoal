@@ -5,6 +5,18 @@ let tablet_media_query = window.matchMedia(
   "(min-width: 400px) and (max-width: 600px)"
 );
 const notes = document.querySelectorAll(".js-note");
+const roseRain = document.querySelector(".rose-rain");
+
+for (let i = 0; i < 18; i++) {
+  const rose = document.createElement("span");
+  rose.className = "rose";
+  rose.textContent = "🌹";
+  rose.style.left = `${Math.random() * 100}%`;
+  rose.style.animationDuration = `${7 + Math.random() * 7}s`;
+  rose.style.animationDelay = `${Math.random() * -12}s`;
+  rose.style.fontSize = `${1.1 + Math.random() * 1.2}rem`;
+  roseRain.appendChild(rose);
+}
 
 //-> Function that resets the size of the notes.
 function recize_notes() {
